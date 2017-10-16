@@ -1,0 +1,27 @@
+{
+  "name": "picito",
+  "description": "proyecto de congreso de ingenierias",
+  "main": "server.js",
+  "authors": [
+    "@GabrielPerez"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "ito",
+    "redSocial"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
