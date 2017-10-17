@@ -14,7 +14,7 @@ app = config(app);
 //crear las rutas de la app
 app.get('/', (req, res)=>{
     //codificando respuesta
-    res.send("Hola,ITO!");
+    res.send("Dj Perez,ITO!");
 })
 //consultar variables de entorno
 //para rescatar el ip y el PORT
