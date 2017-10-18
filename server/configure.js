@@ -12,6 +12,17 @@ cookieParser=require('cookie-parser');
 var routes = require ('./routes');
 
 module.exports = function(app){
+    //configurando handlebars
+    //1. dar de alrta el template engine y config
+    app.engine('handlebars',exphdb.create({
+        defaultLayout: 'main',
+        extname: 'hbs',
+        layoutDir: path.join(app.get('views'),'layouts'),
+        partialDir: [path.join(app.get('views'),'partials')],
+        helpers:{
+            timeago: function(timestamp){}
+        }
+    }))
     //conectando los middlewares
     //middleware para login de http
     app.use(morgan('dev'));

@@ -2,7 +2,7 @@
 module.exports = {
     //action methods
     index : (req, res) => {
-        res.send(`> se ejecuta el metodo index del imageController con el parametro image_id: ${req.params.image_id}`);
+        res.render('image');
     },
     create : (req, res) => {
         res.send("> se ejecuta el metodo create del imageController");
