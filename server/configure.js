@@ -25,7 +25,8 @@ module.exports = function(app){
     app.use(methodOverride());
     //parseo de cookies
     app.use(cookieParser('Algun-Valor-secreto'));
-    
+    //crear las rutas de prueba de la app
+    app = routes(app);
     //hablilitando el servicio estatico de archivos
     app.use('/public/',
     express.static(path.join(

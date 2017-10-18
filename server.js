@@ -11,11 +11,7 @@ app.set('ip', process.env.IP || '0.0.0.0');
 app.set('views', path.join(__dirname,"views"));
 //aplicando configuraciones a nuestra App
 app = config(app);
-//crear las rutas de la app
-app.get('/', (req, res)=>{
-    //codificando respuesta
-    res.send("Dj Perez,ITO!");
-})
+//crear las rutas de la ap
 //consultar variables de entorno
 //para rescatar el ip y el PORT
 const IP = app.get('ip');
