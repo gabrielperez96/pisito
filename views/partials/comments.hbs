@@ -1,27 +1,34 @@
 <div class="panel panel-default">
-    <div class="panel-heading"></div>
-    ultimos comentarios
-    <div class="panel-body"></div>
-    <ul class="media-list">
-        {{#each sidebar.comment}}
-        <li class="media">
-            <a href="/images/{{image.uniqueId}}">
-            <img class="media-object" 
-            width="45"
-            height="45"
-            src="/public/upload/{{image.filename}}"
-            alt="Imagen">
-            </a>
-            <div class="media-body">
-                {{comment}}
-            </div>
-            <strong
-            class="media-heading">
-            {{name}}
-            </strong>
-            <small class="text-muted"
-            {{timeago timestamp}}>
-            </small>
-        </li>
-    </ul>
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Ultimos Comentarios:
+        </h3>
+    </div>
+    <div class="panel-body">
+        <ul class="media-list">
+            {{#each sidebar.comment}}
+            <li class="media">
+                <a
+                class="pull-left" 
+                href="/images/{{image.uniqueId}}">
+                <img
+                width="45"
+                height="45"
+                class="media-object" 
+                src="/public/upload/{{image.filename}}" 
+                alt="Imagen">
+                </a>
+                <div class="media-body">
+                    {{comment}} <br>
+                    <strong class="media-heading">
+                        {{name}}
+                    </strong>
+                    <small class="text-muted">
+                        {{timeago timestamp}}
+                    </small>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
 </div>

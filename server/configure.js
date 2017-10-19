@@ -7,6 +7,8 @@ methodOverride = require('method-override'),
 errorHandler =require('errorhandler'),
 multer = require('multer');
 cookieParser=require('cookie-parser');
+moment = require('moment'),
+multer = require('multer');
 //cargar un modulo personalizado
 //con las rutas validas de la app
 var routes = require ('./routes');
@@ -14,15 +16,20 @@ var routes = require ('./routes');
 module.exports = function(app){
     //configurando handlebars
     //1. dar de alrta el template engine y config
-    app.engine('handlebars',exphdb.create({
+    app.engine('hbs',exphdb.create({
         defaultLayout: 'main',
         extname: 'hbs',
         layoutDir: path.join(app.get('views'),'layouts'),
         partialDir: [path.join(app.get('views'),'partials')],
         helpers:{
-            timeago: function(timestamp){}
+            timeago: function(timestamp){
+                return moment(timestamp).startOf('minutes').fromNow();
+            }
         }
-    }))
+    }) .engine);
+     // 2. Asignarlo como el template engine
+    // de trabajo
+    app.set('view engine', '.hbs');
     //conectando los middlewares
     //middleware para login de http
     app.use(morgan('dev'));

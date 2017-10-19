@@ -1,36 +1,42 @@
 <div class="panel panel-primary">
-    <!-- Heading -->
+    <!-- HEADING -->
     <div class="panel-heading">
         <h2 class="panel-title">
             {{image.title}}
         </h2>
     </div>
-    <!--BODY -->
+    <!-- BODY -->
     <div class="panel-body">
         <p>{{image.description}}</p>
-        <div class="col-md12 text-center">
-            <img
+        <div class="col-md-12 text-center">
+            <img 
             class="img-thumbnail"
             src="/public/upload/{{image.filename}}"
             alt="{{image.title}}">
         </div>
     </div>
     <!-- FOOTER -->
-    <div class ="panel-footer">
-        <div class ="row">
+    <div class="panel-footer">
+        <div class="row">
             <div class="col-md-8">
                 <button
-                data-id="btn btn-success">
-                <i class="fa fa-heart">
-
-                </i>
-                LOVE IT!
+                data-id="{{image.uniqueId}}" 
+                id="btn-like"
+                class="btn btn-success">
+                    <i class="fa fa-heart">
+                    </i>
+                    Love it!
                 </button>
                 <strong class="likes-count">
                     {{image.like}}
                 </strong>&nbsp;-&nbsp;
                 <i class="fa fa-eye"></i>
-            <strong
+                <strong>
+                    {{iamge.views}}
+                </strong>&nbsp;-&nbsp;Publicado:
+                <em class="text-muted">
+                    {{timeago image.timestamp}}
+                </em>
             </div>
         </div>
     </div>
@@ -38,122 +44,110 @@
 <div class="panel panel-dafault">
     <!-- HEADING -->
     <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-8">
-                    <strong class="panel-title">
-                        Comentarios
-                    </strong>
-                </div>
+        <div class="row">
+            <div class="col-md-8">
+                <strong class="panel-title">
+                    Comentarios
+                </strong>
+            </div>
             <div class="col-md-4 text-right">
-                <button
+                <button 
                 data-id="{{image.uniqueId}}"
                 id="btn-comment"
-                class="btn btn-default btn-ms"
+                class="btn btn-default btn-sm">
+                    <i class="fa fa-comments-o"></i>
+                    Publicar Comentario...
+                </button>
             </div>
-            </div>
-    
-    </div>
-        <!--BODY-->
-        <div class="panel-body">
-            <blockquote id="post-comment">
-                <div class="row">
-                    <!--FORM-->
-                    <form
-                    method="POST"
-                    action="/images/comment/{{
-                        image.uniqueId
-                    }}">
-                    <!--Campo Nombre-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="name"
-                        class="col-ms-2 control-label">
-                        Name:
-                        </label>
-                    </div>
-                    <!--Campo Nombre-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="name"
-                        class="col-ms-2 control-label">
-                        Name:
-                        </label>
-                    </div>
-                    <!--Campo Email-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="email"
-                        class="col-ms-2 control-label">
-                        email:
-                        </label>
-                    </div>
-                    <!--Campo Email-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="email"
-                        class="col-ms-2 control-label">
-                        email:
-                        </label>
-                    </div>
-                    <!--Campo Comment-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="comment"
-                        class="col-ms-2 control-label">
-                        comment:
-                        </label>
-                        <div class="col-sm-10"
-                        <textarea
-                        name="comment">
-                    </div>
-                    </form>
-                    <!--Campo Comment-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="comment"
-                        class="col-ms-2 control-label">
-                        comment:
-                        </label>
-                        <div class="col-sm-10"
-                        <textarea
-                        name="comment">
-                    </div>
-                    </form>
-                    <!--Campo submit-->
-                    <div class="form-group col-sm-12">
-                        <label
-                        for="comment"
-                        class="col-ms-2 control-label">
-                        comment:
-                        </label>
-                        <div class="col-sm-10"
-                        <textarea
-                        name="comment">
-                    </div>
-                    </form>
-                </div>
-            </blockquote>
-            <ul class="medialist">
-                {{#each comments}}
-                        <li class="media">
-                            <a
-                            href="#"
-                            class="pull-left">
-                            <img
-                            src="http://www.gravatar.com/avatar{{gravatar}}"
-                            alt="Avatar Image"
-                            class="media-body">
-                            {{comment}}
-                            <br>
-                            <strong class="media-heading">
-                                {{name}}
-                            </strong>
-                            <small clas "text-muted">
-                                {{timeago timestamp}}
-                            </small>
-                            </a>
-                        </li>
-                {{/each}}
-            </ul>
         </div>
+    </div>
+    <!-- BODY -->
+    <div class="panel-body">
+        <blockquote id="post-comment">
+            <div class="row">
+                <!-- FORM -->
+                <form
+                method="POST" 
+                action="/images/comment/{{image.uniqueId}}">
+                <!-- Campo del Nombre -->
+                <div class="form-group col-sm-12">
+                    <label 
+                    for="name" 
+                    class="col-sm-2 control-label">
+                    Nombre:
+                    </label>
+                    <div class="col-sm-10">
+                        <input 
+                        name="name"
+                        type="text" class="form-control">
+                    </div>
+                </div>
+                <!-- Campo del Email -->
+                <div class="form-group col-sm-12">
+                    <label 
+                    for="email" 
+                    class="col-sm-2 control-label">
+                    Email:
+                    </label>
+                    <div class="col-sm-10">
+                        <input 
+                        name="email"
+                        type="text" class="form-control">
+                    </div>
+                </div>
+                <!-- Campo el COMMENT -->
+                <div class="form-group col-sm-12">
+                    <label 
+                    for="comment" 
+                    class="col-sm-2 control-label">
+                    Comment:
+                    </label>
+                    <div class="col-sm-10">
+                        <textarea 
+                        name="comments" 
+                        id="comments" 
+                        rows="2" class="form-control">
+                        </textarea>
+                    </div>
+                </div>
+                <!-- Campo el SUBMIT -->
+                <div class="form-group col-sm-12">
+                    <div class="col-sm-12 text-right">
+                        <button 
+                        type="submit"
+                        id="comment-btn"
+                        class="btn btn-success">
+                        <i class="fa fa-comment"></i>
+                        Post
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </blockquote>
+        <ul class="media-list">
+            {{#each comments}}
+            <li class="media">
+                <a 
+                href="#" 
+                class="pull-left">
+                <img 
+                src="http://www.gravatar.com/avatar{{gravatar}}" 
+                alt="Avatar Image" 
+                class="media-object">
+                </a>
+                <div class="media-body">
+                    {{comment}}
+                    <br>
+                    <strong class="media-heading">
+                        {{name}}
+                    </strong>
+                    <small class="text-muted">
+                        {{timeago timestamp}}
+                    </small>
+                </div>
+            </li>            
+            {{/each}}
+        </ul>
+    </div>
 </div>
