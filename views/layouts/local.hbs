@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picito</title>
+    <link rel="stylesheet" href="public/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+</head>
+<body>
+    <div class="page-header">
+        <div class="container">
+            <dic class="col-md-6">
+                <h1>
+                    <a href="/">
+                    PICITO APP
+                    </a>
+                </h1>
+            </dic>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                {{{body}}}
+            </div>
+            <div class="col-sm-4">
+                {{> stats this}}
+
+                {{> popular this}}
+
+                {{> comments this}}
+            </div>
+        </div>
+    </div>
+    <div 
+    style="border-top: solid 1px #eee; padding-top: 1em;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p class="text-muted">
+                        Picito | &copy; Copyright 2017, All rights reserved
+                    </p>
+                    <p class="text-center">
+                        <i class="fa fa-twitter-square fa-2x text-primary"></i>
+                        <i class="fa fa-facebook-square fa-2x text-primary"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="public/vendor/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/public/is/scripts.js"></script>
+</body>
+</html>

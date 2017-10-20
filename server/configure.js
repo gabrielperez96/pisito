@@ -43,6 +43,14 @@ module.exports = function(app){
     app.use(methodOverride());
     //parseo de cookies
     app.use(cookieParser('Algun-Valor-secreto'));
+    app.use(multer({
+        dest: path.join(
+            __dirname,
+            '../public/upload/temp'
+        )
+    }).any());
+
+
     //crear las rutas de prueba de la app
     app = routes(app);
     //hablilitando el servicio estatico de archivos
@@ -50,6 +58,8 @@ module.exports = function(app){
     express.static(path.join(
         __dirname, '../public'
     )));
+
+    
     //middleware para el manejo de 
     //errores
     if (app.get('env')==='development'){

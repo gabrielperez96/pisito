@@ -2,3 +2,5 @@
 node_modules
 #omitiendo dependencias del fronted
 public/vendor
+#Omitiendo Temporales
+public/upload/temp
